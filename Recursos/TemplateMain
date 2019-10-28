@@ -1,0 +1,14 @@
+def main(args: Array[String]): Unit = {
+    Logger.getLogger("org").setLevel(Level.ERROR)
+
+    val spark = SparkSession
+      .builder()
+      .appName("Ejemplo Josep Sack")
+      .master("local[*]")
+      .getOrCreate()
+
+    //Para importar las conversiones implicitas de spark
+    import spark.implicits._
+
+    spark.sparkContext.stop()
+}
